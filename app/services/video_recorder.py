@@ -4,6 +4,9 @@ import threading
 import time
 from datetime import datetime
 
+from app.graphics.video_overlay import VideoOverlay
+from app.graphics.overlay_context import OverlayContext
+
 
 class VideoRecorder:
 
@@ -17,12 +20,16 @@ class VideoRecorder:
         self.webcam = None
         self.path = None
 
+        self.overlay = VideoOverlay()
+
+        self.context = OverlayContext()
+
         os.makedirs(
             "guardian_data/videos",
             exist_ok=True
         )
 
-    def start(self, webcam):
+    def start(self, webcam, protocol="GRAVAÇÃO"):
 
         if self.recording:
             return None
@@ -53,6 +60,10 @@ class VideoRecorder:
             (w, h)
         )
 
+        self.context.protocol = protocol
+        self.context.started_at = datetime.now()
+        self.context.recording = True
+
         self.recording = True
 
         self.thread = threading.Thread(
@@ -71,6 +82,23 @@ class VideoRecorder:
             frame = self.webcam.get_frame()
 
             if frame is not None:
+
+                now = datetime.now()
+
+                self.context.now = now
+
+                self.context.elapsed_seconds = int(
+                    (
+                        now -
+                        self.context.started_at
+                    ).total_seconds()
+                )
+
+                frame = self.overlay.draw(
+                    frame,
+                    self.context
+                )
+
                 self.writer.write(frame)
 
             time.sleep(0.03)
@@ -81,6 +109,8 @@ class VideoRecorder:
             return self.path
 
         self.recording = False
+
+        self.context.recording = False
 
         if self.thread is not None:
             self.thread.join()

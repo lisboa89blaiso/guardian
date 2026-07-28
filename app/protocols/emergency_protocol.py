@@ -9,9 +9,17 @@ class EmergencyProtocol:
 
     def execute(self):
 
+        #
+        # Marca o protocolo como ativo
+        #
+
         self.engine.state.start(
             ProtocolStatus.EMERGENCY
         )
+
+        #
+        # Captura uma foto inicial
+        #
 
         frame = self.engine.webcam.get_frame()
 
@@ -27,13 +35,14 @@ class EmergencyProtocol:
                 f"Captura salva: {image_path}"
             )
 
-        self.engine.media.start(
-            self.engine.webcam
-        )
+        #
+        # Inicia gravação contínua
+        #
 
-        self.engine.logger.critical(
-            "Gravação de áudio e vídeo iniciada."
-        )
+        self.engine.media.start(
+    self.engine.webcam,
+    protocol="EMERGÊNCIA"
+)
 
         self.engine.notification.notify(
             "EMERGÊNCIA",
@@ -41,5 +50,17 @@ class EmergencyProtocol:
         )
 
         self.engine.logger.critical(
-            "PROTOCOLO EMERGÊNCIA"
+            "================================="
+        )
+
+        self.engine.logger.critical(
+            "PROTOCOLO DE EMERGÊNCIA ATIVO"
+        )
+
+        self.engine.logger.critical(
+            "Pressione F10 novamente para encerrar."
+        )
+
+        self.engine.logger.critical(
+            "================================="
         )

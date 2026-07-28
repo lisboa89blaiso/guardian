@@ -19,24 +19,33 @@ class MediaSession:
         self.webcam = None
         self.timer = None
 
+        self.protocol = "GRAVAÇÃO"
+
         os.makedirs(
             "guardian_data/recordings",
             exist_ok=True
         )
 
-    def start(self, webcam):
+    def start(self, webcam, protocol="GRAVAÇÃO"):
 
+        self.protocol = protocol
         self.webcam = webcam
 
         self.audio.start()
 
         time.sleep(0.15)
 
-        self.video.start(webcam)
+        self.video.start(
+            webcam,
+            protocol=self.protocol
+        )
 
-    def record(self, webcam, seconds):
+    def record(self, webcam, seconds, protocol="GRAVAÇÃO"):
 
-        self.start(webcam)
+        self.start(
+            webcam,
+            protocol=protocol
+        )
 
         self.timer = threading.Thread(
             target=self._auto_stop,

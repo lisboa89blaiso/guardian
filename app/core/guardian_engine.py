@@ -1,6 +1,6 @@
 from app.core.event_logger import EventLogger
 from app.core.protocol_engine import ProtocolEngine
-from app.core.protocol_state import ProtocolState
+from app.core.protocol_state import ProtocolState, ProtocolStatus
 
 from app.services.notification_service import NotificationService
 from app.services.media_session import MediaSession
@@ -56,6 +56,30 @@ class GuardianEngine:
 
     def emergencia(self):
 
+        #
+        # Se já existe uma emergência ativa,
+        # a mesma tecla encerra a gravação.
+        #
+
+        if (
+            self.state.active
+            and
+            self.state.status == ProtocolStatus.EMERGENCY
+        ):
+
+            self.logger.warning(
+                "Encerrando protocolo de emergência..."
+            )
+
+            self.finish_protocol()
+
+            return
+
+        #
+        # Se existe outro protocolo ativo,
+        # não inicia a emergência.
+        #
+
         if self.state.active:
 
             self.logger.warning(
@@ -63,6 +87,10 @@ class GuardianEngine:
             )
 
             return
+
+        #
+        # Inicia emergência
+        #
 
         self.protocols.execute(
             "emergency"

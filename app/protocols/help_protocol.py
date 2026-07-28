@@ -31,9 +31,10 @@ class HelpProtocol:
             )
 
         self.engine.media.record(
-            self.engine.webcam,
-            seconds=10
-        )
+    self.engine.webcam,
+    seconds=10,
+    protocol="AJUDA"
+)
 
         self.engine.logger.warning(
             "Gravação de áudio e vídeo iniciada."
