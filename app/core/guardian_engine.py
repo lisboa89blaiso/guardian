@@ -3,7 +3,7 @@ from app.core.protocol_engine import ProtocolEngine
 from app.core.protocol_state import ProtocolState
 
 from app.services.notification_service import NotificationService
-from app.services.video_recorder import VideoRecorder
+from app.services.media_session import MediaSession
 
 
 class GuardianEngine:
@@ -22,7 +22,7 @@ class GuardianEngine:
 
         self.notification = NotificationService()
 
-        self.video = VideoRecorder()
+        self.media = MediaSession()
 
         self.protocols = ProtocolEngine(
             self
@@ -71,15 +71,14 @@ class GuardianEngine:
     def finish_protocol(self):
 
         if not self.state.active:
-
             return
 
-        video = self.video.stop()
+        final_video = self.media.stop()
 
-        if video:
+        if final_video:
 
             self.logger.info(
-                f"Vídeo salvo: {video}"
+                f"Gravação salva: {final_video}"
             )
 
         self.state.finish()

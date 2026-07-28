@@ -15,36 +15,31 @@ class EmergencyProtocol:
 
         frame = self.engine.webcam.get_frame()
 
-        path = self.engine.screenshot.save(frame)
+        image_path = self.engine.screenshot.save(frame)
 
-        if path:
+        if image_path:
 
-            self.engine.window.update_preview(path)
-
-            self.engine.logger.critical(
-                f"Captura salva: {path}"
+            self.engine.window.update_preview(
+                image_path
             )
 
-        self.engine.video.start(
+            self.engine.logger.critical(
+                f"Captura salva: {image_path}"
+            )
+
+        self.engine.media.start(
             self.engine.webcam
         )
 
+        self.engine.logger.critical(
+            "Gravação de áudio e vídeo iniciada."
+        )
+
         self.engine.notification.notify(
-
             "EMERGÊNCIA",
-
-            "Gravação iniciada."
-
+            "Protocolo iniciado."
         )
 
         self.engine.logger.critical(
-
-            "Gravação de vídeo iniciada"
-
-        )
-
-        self.engine.logger.critical(
-
             "PROTOCOLO EMERGÊNCIA"
-
         )

@@ -1,7 +1,7 @@
 import threading
+import time
 
 from app.core.protocol_state import ProtocolStatus
-from app.services.audio_recorder import AudioRecorder
 
 
 class HelpProtocol:
@@ -9,10 +9,6 @@ class HelpProtocol:
     def __init__(self, engine):
 
         self.engine = engine
-
-        self.audio = AudioRecorder()
-        self.audio.list_devices()
-        
 
     def execute(self):
 
@@ -34,26 +30,14 @@ class HelpProtocol:
                 f"Foto salva: {image_path}"
             )
 
-        video_path = self.engine.video.start(
+        self.engine.media.record(
             self.engine.webcam,
             seconds=10
         )
 
-        if video_path:
-
-            self.engine.logger.warning(
-                f"Vídeo iniciado: {video_path}"
-            )
-
-        audio_path = self.audio.start(
-            seconds=10
+        self.engine.logger.warning(
+            "Gravação de áudio e vídeo iniciada."
         )
-
-        if audio_path:
-
-            self.engine.logger.warning(
-                f"Áudio iniciado: {audio_path}"
-            )
 
         self.engine.notification.notify(
             "AJUDA",
@@ -67,19 +51,7 @@ class HelpProtocol:
 
     def _finish_after_recording(self):
 
-        while self.engine.video.is_recording():
-
-            import time
-
+        while self.engine.media.is_recording():
             time.sleep(0.25)
 
-        self.engine.state.finish()
-
-        self.engine.logger.info(
-            "Protocolo AJUDA finalizado automaticamente."
-        )
-
-        self.engine.notification.notify(
-            "AJUDA",
-            "Protocolo encerrado."
-        )
+        self.engine.finish_protocol()

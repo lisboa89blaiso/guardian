@@ -12,11 +12,9 @@ class VideoRecorder:
         self.recording = False
 
         self.writer = None
-
         self.thread = None
 
         self.webcam = None
-
         self.path = None
 
         os.makedirs(
@@ -24,94 +22,71 @@ class VideoRecorder:
             exist_ok=True
         )
 
-    def start(self, webcam, seconds=None):
+    def start(self, webcam):
 
         if self.recording:
             return None
 
         self.webcam = webcam
 
-        self.recording = True
-
-        filename = datetime.now().strftime("%Y%m%d_%H%M%S.mp4")
-
-        self.path = os.path.join(
-            "guardian_data/videos",
-            filename
-        )
-
         frame = webcam.get_frame()
 
         if frame is None:
-
-            self.recording = False
-
             return None
+
+        filename = datetime.now().strftime(
+            "%Y%m%d_%H%M%S.mp4"
+        )
+
+        self.path = os.path.join(
+            "guardian_data",
+            "videos",
+            filename
+        )
 
         h, w = frame.shape[:2]
 
-        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-
         self.writer = cv2.VideoWriter(
             self.path,
-            fourcc,
+            cv2.VideoWriter_fourcc(*"mp4v"),
             20,
             (w, h)
         )
 
+        self.recording = True
+
         self.thread = threading.Thread(
-            target=self._loop,
+            target=self._record_loop,
             daemon=True
         )
 
         self.thread.start()
 
-        if seconds is not None:
-
-            timer = threading.Thread(
-                target=self._auto_stop,
-                args=(seconds,),
-                daemon=True
-            )
-
-            timer.start()
-
         return self.path
 
-    def _loop(self):
+    def _record_loop(self):
 
         while self.recording:
 
             frame = self.webcam.get_frame()
 
             if frame is not None:
-
                 self.writer.write(frame)
 
             time.sleep(0.03)
 
-    def _auto_stop(self, seconds):
-
-        time.sleep(seconds)
-
-        self.stop()
-
     def stop(self):
 
         if not self.recording:
-
             return self.path
 
         self.recording = False
 
-        if self.thread:
-
+        if self.thread is not None:
             self.thread.join()
 
-        if self.writer:
-
+        if self.writer is not None:
             self.writer.release()
-
             self.writer = None
 
         return self.path

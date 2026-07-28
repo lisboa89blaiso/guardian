@@ -298,5 +298,110 @@
         "time": "2026-07-28T19:09:01.239867",
         "level": "ℹ️",
         "message": "Protocolo AJUDA finalizado automaticamente."
+    },
+    {
+        "time": "2026-07-28T19:48:46.116173",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T19:59:19.126740",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T19:59:21.357884",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T19:59:23.275471",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_195923.jpg"
+    },
+    {
+        "time": "2026-07-28T19:59:38.037365",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
+    },
+    {
+        "time": "2026-07-28T20:01:21.633833",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T20:01:23.029645",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T20:01:24.400715",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_200124.jpg"
+    },
+    {
+        "time": "2026-07-28T20:01:24.656626",
+        "level": "🟡",
+        "message": "Gravação de áudio e vídeo iniciada."
+    },
+    {
+        "time": "2026-07-28T20:01:33.211410",
+        "level": "ℹ️",
+        "message": "Gravação salva: guardian_data\\recordings\\20260728_200132.mp4"
+    },
+    {
+        "time": "2026-07-28T20:01:33.235108",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
+    },
+    {
+        "time": "2026-07-28T20:01:33.325077",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
+    },
+    {
+        "time": "2026-07-28T20:01:36.612253",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_200136.jpg"
+    },
+    {
+        "time": "2026-07-28T20:01:36.839616",
+        "level": "🔴",
+        "message": "Gravação de áudio e vídeo iniciada."
+    },
+    {
+        "time": "2026-07-28T20:01:36.906325",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T20:01:49.667721",
+        "level": "ℹ️",
+        "message": "Gravação salva: guardian_data\\recordings\\20260728_200149.mp4"
+    },
+    {
+        "time": "2026-07-28T20:01:49.683705",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
+    },
+    {
+        "time": "2026-07-28T20:05:55.703389",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_200555.jpg"
+    },
+    {
+        "time": "2026-07-28T20:05:55.964633",
+        "level": "🟡",
+        "message": "Gravação de áudio e vídeo iniciada."
+    },
+    {
+        "time": "2026-07-28T20:06:06.507936",
+        "level": "ℹ️",
+        "message": "Gravação salva: guardian_data\\recordings\\20260728_200606.mp4"
+    },
+    {
+        "time": "2026-07-28T20:06:06.532421",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
     }
 ]
