@@ -1,0 +1,302 @@
+[
+    {
+        "time": "2026-07-28T18:16:43.811581",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T18:16:46.354149",
+        "level": "🟡",
+        "message": "Captura salva: screenshots\\20260728_181646.jpg"
+    },
+    {
+        "time": "2026-07-28T18:16:46.492258",
+        "level": "🟡",
+        "message": "Pedido de ajuda"
+    },
+    {
+        "time": "2026-07-28T18:16:51.548549",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T18:16:53.351712",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_181653.jpg"
+    },
+    {
+        "time": "2026-07-28T18:16:53.457606",
+        "level": "🔴",
+        "message": "EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:16:59.683521",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_181659.jpg"
+    },
+    {
+        "time": "2026-07-28T18:16:59.769205",
+        "level": "🔴",
+        "message": "EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:20:59.243401",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T18:21:01.030907",
+        "level": "🟡",
+        "message": "Captura salva: screenshots\\20260728_182100.jpg"
+    },
+    {
+        "time": "2026-07-28T18:21:01.086060",
+        "level": "🟡",
+        "message": "Protocolo AJUDA executado"
+    },
+    {
+        "time": "2026-07-28T18:21:04.387060",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T18:21:05.711167",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_182105.jpg"
+    },
+    {
+        "time": "2026-07-28T18:21:05.799230",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:23:50.693138",
+        "level": "🟡",
+        "message": "Captura salva: screenshots\\20260728_182350.jpg"
+    },
+    {
+        "time": "2026-07-28T18:23:50.787685",
+        "level": "🟡",
+        "message": "Protocolo AJUDA executado"
+    },
+    {
+        "time": "2026-07-28T18:23:56.109493",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_182356.jpg"
+    },
+    {
+        "time": "2026-07-28T18:23:56.239660",
+        "level": "🔴",
+        "message": "Gravação de vídeo iniciada"
+    },
+    {
+        "time": "2026-07-28T18:23:56.278311",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:29:38.438664",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_182938.jpg"
+    },
+    {
+        "time": "2026-07-28T18:29:38.556917",
+        "level": "🔴",
+        "message": "Gravação de vídeo iniciada"
+    },
+    {
+        "time": "2026-07-28T18:29:38.593439",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:29:47.394814",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T18:29:52.654303",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T18:29:54.717125",
+        "level": "ℹ️",
+        "message": "Quero conversar"
+    },
+    {
+        "time": "2026-07-28T18:29:56.293585",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T18:34:08.165630",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_183408.jpg"
+    },
+    {
+        "time": "2026-07-28T18:34:08.309801",
+        "level": "🔴",
+        "message": "Gravação de vídeo iniciada"
+    },
+    {
+        "time": "2026-07-28T18:34:08.371142",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:34:17.637699",
+        "level": "ℹ️",
+        "message": "Vídeo salvo: guardian_data/videos\\20260728_183408.mp4"
+    },
+    {
+        "time": "2026-07-28T18:34:17.653796",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado"
+    },
+    {
+        "time": "2026-07-28T18:36:04.692780",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_183604.jpg"
+    },
+    {
+        "time": "2026-07-28T18:36:04.750351",
+        "level": "🔴",
+        "message": "Gravação de vídeo iniciada"
+    },
+    {
+        "time": "2026-07-28T18:36:04.817661",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:36:14.097996",
+        "level": "ℹ️",
+        "message": "Vídeo salvo: guardian_data/videos\\20260728_183604.mp4"
+    },
+    {
+        "time": "2026-07-28T18:36:14.109380",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado"
+    },
+    {
+        "time": "2026-07-28T18:44:27.598943",
+        "level": "🔴",
+        "message": "Captura salva: screenshots\\20260728_184427.jpg"
+    },
+    {
+        "time": "2026-07-28T18:44:27.710956",
+        "level": "🔴",
+        "message": "Gravação de vídeo iniciada"
+    },
+    {
+        "time": "2026-07-28T18:44:27.748751",
+        "level": "🔴",
+        "message": "PROTOCOLO EMERGÊNCIA"
+    },
+    {
+        "time": "2026-07-28T18:44:42.652345",
+        "level": "ℹ️",
+        "message": "Ligar para papai"
+    },
+    {
+        "time": "2026-07-28T18:44:45.183010",
+        "level": "ℹ️",
+        "message": "Vídeo salvo: guardian_data/videos\\20260728_184427.mp4"
+    },
+    {
+        "time": "2026-07-28T18:44:45.201927",
+        "level": "ℹ️",
+        "message": "Protocolo encerrado."
+    },
+    {
+        "time": "2026-07-28T18:44:47.675051",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_184447.jpg"
+    },
+    {
+        "time": "2026-07-28T18:44:47.785339",
+        "level": "🟡",
+        "message": "Vídeo iniciado: guardian_data/videos\\20260728_184447.mp4"
+    },
+    {
+        "time": "2026-07-28T18:44:47.834607",
+        "level": "🟡",
+        "message": "Áudio iniciado: guardian_data/audio\\20260728_184447.wav"
+    },
+    {
+        "time": "2026-07-28T18:44:57.928077",
+        "level": "ℹ️",
+        "message": "Protocolo AJUDA finalizado automaticamente."
+    },
+    {
+        "time": "2026-07-28T18:48:45.628035",
+        "level": "🟡",
+        "message": "Áudio iniciado: guardian_data/audio\\20260728_184845.wav"
+    },
+    {
+        "time": "2026-07-28T18:48:45.709149",
+        "level": "ℹ️",
+        "message": "Protocolo AJUDA finalizado automaticamente."
+    },
+    {
+        "time": "2026-07-28T18:50:45.489273",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_185045.jpg"
+    },
+    {
+        "time": "2026-07-28T18:50:45.636812",
+        "level": "🟡",
+        "message": "Vídeo iniciado: guardian_data/videos\\20260728_185045.mp4"
+    },
+    {
+        "time": "2026-07-28T18:50:45.697264",
+        "level": "🟡",
+        "message": "Áudio iniciado: guardian_data/audio\\20260728_185045.wav"
+    },
+    {
+        "time": "2026-07-28T18:50:55.756197",
+        "level": "ℹ️",
+        "message": "Protocolo AJUDA finalizado automaticamente."
+    },
+    {
+        "time": "2026-07-28T18:51:49.728732",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_185149.jpg"
+    },
+    {
+        "time": "2026-07-28T18:51:49.809823",
+        "level": "🟡",
+        "message": "Vídeo iniciado: guardian_data/videos\\20260728_185149.mp4"
+    },
+    {
+        "time": "2026-07-28T18:51:49.877346",
+        "level": "🟡",
+        "message": "Áudio iniciado: guardian_data/audio\\20260728_185149.wav"
+    },
+    {
+        "time": "2026-07-28T18:51:59.963913",
+        "level": "ℹ️",
+        "message": "Protocolo AJUDA finalizado automaticamente."
+    },
+    {
+        "time": "2026-07-28T19:08:50.968664",
+        "level": "🟡",
+        "message": "Foto salva: screenshots\\20260728_190850.jpg"
+    },
+    {
+        "time": "2026-07-28T19:08:51.093991",
+        "level": "🟡",
+        "message": "Vídeo iniciado: guardian_data/videos\\20260728_190851.mp4"
+    },
+    {
+        "time": "2026-07-28T19:08:51.158384",
+        "level": "🟡",
+        "message": "Áudio iniciado: guardian_data/audio\\20260728_190851.wav"
+    },
+    {
+        "time": "2026-07-28T19:09:01.239867",
+        "level": "ℹ️",
+        "message": "Protocolo AJUDA finalizado automaticamente."
+    }
+]
