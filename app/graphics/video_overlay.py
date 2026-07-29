@@ -125,6 +125,27 @@ class VideoOverlay:
             2,
             cv2.LINE_AA
         )
+        #
+        # ID da ocorrência
+        #
+        (w, _), _ = cv2.getTextSize(
+            context.event_id,
+            self.font,
+            0.45,
+            1
+        )
+
+        cv2.putText(
+            frame,
+            context.event_id,
+            (frame.shape[1] - w - 20, frame.shape[0] - 48),
+            self.font,
+            0.45,
+            self.SECONDARY_TEXT_COLOR,
+            1,
+            cv2.LINE_AA
+        )
+
 
         #
         # Cronômetro

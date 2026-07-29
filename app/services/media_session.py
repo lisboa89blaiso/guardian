@@ -6,7 +6,7 @@ import time
 from app.services.video_recorder import VideoRecorder
 from app.services.audio_recorder import AudioRecorder
 from app.services.media_muxer import MediaMuxer
-
+from app.services.metadata_service import MetadataService
 
 class MediaSession:
 
@@ -15,9 +15,12 @@ class MediaSession:
         self.video = VideoRecorder()
         self.audio = AudioRecorder()
         self.muxer = MediaMuxer()
+        self.event_id = ""
+        self.metadata = MetadataService()
 
         self.webcam = None
         self.timer = None
+        self.started_at = None
 
         self.protocol = "GRAVAÇÃO"
 
@@ -28,6 +31,10 @@ class MediaSession:
 
     def start(self, webcam, protocol="GRAVAÇÃO"):
 
+        self.started_at = datetime.now()
+        self.event_id = datetime.now().strftime(
+             "GDN-%Y%m%d-%H%M%S"
+                )    
         self.protocol = protocol
         self.webcam = webcam
 
@@ -45,6 +52,11 @@ class MediaSession:
         self.start(
             webcam,
             protocol=protocol
+        )
+        self.video.start(
+            webcam,
+            protocol=self.protocol,
+            event_id=self.event_id
         )
 
         self.timer = threading.Thread(
@@ -103,6 +115,22 @@ class MediaSession:
             return output
 
         return video_path
+    
+        finished_at = datetime.now()
+
+        duration = int(
+            (finished_at - self.started_at).total_seconds()
+        )
+
+        self.metadata.save(
+            output_path=output,
+            event_id=self.event_id,
+            protocol=self.protocol,
+            started_at=self.started_at,
+            finished_at=finished_at,
+            duration_seconds=duration
+        )
+    
 
     def is_recording(self):
 

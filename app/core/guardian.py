@@ -1,7 +1,8 @@
 from app.media.webcam import WebcamService
 from app.media.screenshot import ScreenshotService
 
-from app.ui.main_window import MainWindow
+from app.ui.guardian_ui import GuardianUI
+from app.ui.window_mode import WindowMode
 
 from app.controllers.input_controller import InputController
 from app.core.guardian_engine import GuardianEngine
@@ -15,22 +16,21 @@ class Guardian:
 
         self.screenshot = ScreenshotService()
 
-        self.window = MainWindow(
-            webcam=self.webcam
+        self.ui = GuardianUI(
+            self.webcam,
+            mode=WindowMode.DEVELOPMENT
         )
 
         self.engine = GuardianEngine(
-            window=self.window,
+            window=self.ui,
             webcam=self.webcam,
             screenshot=self.screenshot
         )
 
-        self.window.bind_guardian(
-            self.engine
-        )
+        self.ui.bind_guardian(self)
 
         self.input = InputController(
-            engine=self.engine
+            guardian=self
         )
 
     def start(self):
@@ -39,6 +39,14 @@ class Guardian:
 
         self.input.start()
 
-        self.window.run()
+        self.ui.run()
 
         self.webcam.stop()
+
+    def toggle_panel(self):
+
+        self.ui.toggle_panel()
+
+    def toggle_main_window(self):
+
+        self.ui.toggle_main_window()

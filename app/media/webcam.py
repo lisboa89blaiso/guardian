@@ -16,25 +16,47 @@ class WebcamService:
 
         self.thread = None
 
+        #
+        # Listeners
+        #
+
+        self.listeners = []
+
     def start(self):
 
-        # Tenta abrir a câmera configurada
-        self.cap = cv2.VideoCapture(self.camera_index, cv2.CAP_DSHOW)
+        self.cap = cv2.VideoCapture(
+            self.camera_index,
+            cv2.CAP_DSHOW
+        )
 
         if not self.cap.isOpened():
 
-            # Fallback usando backend padrão
             self.cap.release()
-            self.cap = cv2.VideoCapture(self.camera_index)
+
+            self.cap = cv2.VideoCapture(
+                self.camera_index
+            )
 
         if not self.cap.isOpened():
+
             raise RuntimeError(
                 f"Não foi possível abrir a câmera {self.camera_index}"
             )
 
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-        self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+        self.cap.set(
+            cv2.CAP_PROP_FRAME_WIDTH,
+            1920
+        )
+
+        self.cap.set(
+            cv2.CAP_PROP_FRAME_HEIGHT,
+            1080
+        )
+
+        self.cap.set(
+            cv2.CAP_PROP_BUFFERSIZE,
+            1
+        )
 
         self.running = True
 
@@ -55,7 +77,10 @@ class WebcamService:
             ok, frame = self.cap.read()
 
             if ok:
+
                 self.frame = frame
+
+                self._notify(frame)
 
             time.sleep(0.01)
 
@@ -63,13 +88,46 @@ class WebcamService:
 
         return self.frame
 
+    #
+    # Listeners
+    #
+
+    def add_listener(self, listener):
+
+        if listener not in self.listeners:
+
+            self.listeners.append(listener)
+
+    def remove_listener(self, listener):
+
+        if listener in self.listeners:
+
+            self.listeners.remove(listener)
+
+    def _notify(self, frame):
+
+        for listener in self.listeners:
+
+            try:
+
+                listener.on_new_frame(frame)
+
+            except Exception:
+
+                pass
+
     def stop(self):
 
         self.running = False
 
         if self.thread is not None:
+
             self.thread.join(timeout=1)
 
         if self.cap is not None:
+
             self.cap.release()
+
             self.cap = None
+
+        self.listeners.clear()

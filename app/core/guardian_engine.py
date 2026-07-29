@@ -119,3 +119,13 @@ class GuardianEngine:
         self.logger.info(
             "Protocolo encerrado."
         )
+
+        #
+        # Atualiza a interface
+        #
+
+        if hasattr(self.window, "actions"):
+
+            self.window.actions.stop_protocol(
+                update_engine=False
+            )

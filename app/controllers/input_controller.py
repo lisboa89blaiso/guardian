@@ -3,33 +3,43 @@ import keyboard
 
 class InputController:
 
-    def __init__(self, engine):
+    def __init__(self, guardian):
 
-        self.engine = engine
+        self.guardian = guardian
 
     def start(self):
 
         keyboard.add_hotkey(
+            "ctrl+shift+q",
+            self.guardian.toggle_panel
+        )
+
+        keyboard.add_hotkey(
+            "ctrl+shift+y",
+            self.guardian.toggle_main_window
+        )
+
+        keyboard.add_hotkey(
             "ctrl+shift+e",
-            self.engine.conversar
+            self.guardian.engine.conversar
         )
 
         keyboard.add_hotkey(
             "ctrl+shift+(",
-            self.engine.ligar_papai
+            self.guardian.engine.ligar_papai
         )
 
         keyboard.add_hotkey(
             "ctrl+shift+r",
-            self.engine.ajuda
+            self.guardian.engine.ajuda
         )
 
         keyboard.add_hotkey(
             "ctrl+shift+*",
-            self.engine.emergencia
+            self.guardian.engine.emergencia
         )
 
         keyboard.add_hotkey(
             "ctrl+shift+f12",
-            self.engine.finish_protocol
+            self.guardian.engine.finish_protocol
         )

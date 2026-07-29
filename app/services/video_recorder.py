@@ -4,8 +4,7 @@ import threading
 import time
 from datetime import datetime
 
-from app.graphics.video_overlay import VideoOverlay
-from app.graphics.overlay_context import OverlayContext
+from app.graphics.frame_renderer import FrameRenderer
 
 
 class VideoRecorder:
@@ -13,23 +12,23 @@ class VideoRecorder:
     def __init__(self):
 
         self.recording = False
-
+        self.protocol = "PRONTO"
+        self.event_id = ""
+        self.started_at = None
         self.writer = None
         self.thread = None
 
         self.webcam = None
         self.path = None
 
-        self.overlay = VideoOverlay()
-
-        self.context = OverlayContext()
+        self.renderer = FrameRenderer()
 
         os.makedirs(
             "guardian_data/videos",
             exist_ok=True
         )
 
-    def start(self, webcam, protocol="GRAVAÇÃO"):
+    def start(self, webcam, protocol="GRAVAÇÃO", event_id=""):
 
         if self.recording:
             return None
@@ -60,9 +59,9 @@ class VideoRecorder:
             (w, h)
         )
 
-        self.context.protocol = protocol
-        self.context.started_at = datetime.now()
-        self.context.recording = True
+        self.protocol = protocol
+        self.event_id = event_id
+        self.started_at = datetime.now()
 
         self.recording = True
 
@@ -72,6 +71,10 @@ class VideoRecorder:
         )
 
         self.thread.start()
+
+        self.protocol = protocol
+        self.event_id = event_id
+        self.started_at = datetime.now()
 
         return self.path
 
@@ -83,20 +86,11 @@ class VideoRecorder:
 
             if frame is not None:
 
-                now = datetime.now()
-
-                self.context.now = now
-
-                self.context.elapsed_seconds = int(
-                    (
-                        now -
-                        self.context.started_at
-                    ).total_seconds()
-                )
-
-                frame = self.overlay.draw(
+                frame = self.renderer.render(
                     frame,
-                    self.context
+                    protocol=self.protocol,
+                    event_id=self.event_id,
+                    started_at=self.started_at,
                 )
 
                 self.writer.write(frame)
@@ -110,8 +104,7 @@ class VideoRecorder:
 
         self.recording = False
 
-        self.context.recording = False
-
+    
         if self.thread is not None:
             self.thread.join()
 

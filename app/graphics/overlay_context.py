@@ -5,6 +5,8 @@ from datetime import datetime
 @dataclass
 class OverlayContext:
 
+    event_id: str = ""
+    
     protocol: str = ""
 
     recording: bool = False
