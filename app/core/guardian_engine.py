@@ -109,6 +109,20 @@ class GuardianEngine:
                 f"Gravação salva: {final_video}"
             )
 
+            if self.state.status == ProtocolStatus.HELP:
+
+                self.guardian.discord.send_video(
+                    final_video,
+                    "🆘 Pedido de ajuda"
+                )
+
+            elif self.state.status == ProtocolStatus.EMERGENCY:
+
+                self.guardian.discord.send_video(
+                    final_video,
+                    "🚨 Emergência detectada"
+                )
+
         self.state.finish()
 
         self.notification.notify(
@@ -119,10 +133,6 @@ class GuardianEngine:
         self.logger.info(
             "Protocolo encerrado."
         )
-
-        #
-        # Atualiza a interface
-        #
 
         if hasattr(self.window, "actions"):
 

@@ -34,6 +34,12 @@ class EmergencyProtocol:
             self.engine.logger.critical(
                 f"Captura salva: {image_path}"
             )
+            print(image_path)
+
+            self.engine.guardian.discord.send_image(
+                image_path,
+                "🚨 Emergência detectada"
+            )
 
         #
         # Inicia gravação contínua

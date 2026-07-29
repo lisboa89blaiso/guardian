@@ -74,4 +74,8 @@ class ActionController:
         if self.guardian is None:
             return
 
+        self.guardian.discord.send_message(
+            "💬 Preciso falar com você, urgente!"
+        )
+
         self.guardian.engine.conversar()
